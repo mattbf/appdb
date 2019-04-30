@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from appsDatabase import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^api/apps/$', views.apps_list),
+    url(r'^api/apps/(?P<id>[0-9]+)$', views.apps_detail),
 ]
